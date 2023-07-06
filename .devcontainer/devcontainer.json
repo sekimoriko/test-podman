@@ -4,13 +4,18 @@
 	"name": "vscode",
 	"image": "mcr.microsoft.com/devcontainers/base:alpine-3.18",
 	// Run devcontainer with podman in rootless mode
+	// https://code.visualstudio.com/remote/advancedcontainers/docker-options#_podman
 	// https://medium.com/@guillem.riera/making-visual-studio-code-devcontainer-work-properly-on-rootless-podman-8d9ddc368b30
-	// https://zenn.dev/forrep/articles/8c0304ad420c8e
 	// https://github.com/containers/podman/issues/17560
+	// https://github.com/microsoft/vscode-remote-release/issues/4443
+	"containerEnv": {
+		"HOME": "/home/vscode"
+	},
 	"runArgs": [
 		"--userns=keep-id:uid=1000,gid=1000"
 	],
-	"containerUser": "vscode",
-	"updateRemoteUserUID": true,
+	// Run devcontainer with podman in rootful mode
+	// https://zenn.dev/hankei6km/scraps/4ef9618f5035b2
+	// "remoteUser": "root",
 	"postCreateCommand": "git config --global --add safe.directory '*'"
 }
