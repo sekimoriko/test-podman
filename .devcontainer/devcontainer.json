@@ -6,6 +6,7 @@
 	// Run devcontainer with podman in rootless mode
 	// https://medium.com/@guillem.riera/making-visual-studio-code-devcontainer-work-properly-on-rootless-podman-8d9ddc368b30
 	// https://zenn.dev/forrep/articles/8c0304ad420c8e
+	// https://github.com/containers/podman/issues/17560
 	"runArgs": [
 		"--userns=keep-id:uid=1000,gid=1000"
 	],
